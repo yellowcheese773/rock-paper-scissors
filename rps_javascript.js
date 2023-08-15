@@ -6,15 +6,46 @@ function getComputerChoice() {
     let number = parseInt(randomInRange)
 
     if (number == 1) {
-        return "Rock"
+        console.log("rock")
+        return "rock"
     }
 
     else if (number == 2) {
-        return "Paper"
+        console.log("paper")
+        return "paper"
     }
     else if (number == 3) {
-        return "Scissor"
+        console.log("scissor")
+        return "scissor"
     }
+
+
+}
+
+
+function playRound(playerSelection, computerSelection) {
+
+    if (playerSelection == computerSelection) {
+        return "nobody wins"
+    }
+
+    if (playerSelection == "rock" && computerSelection == "paper") {
+        return "computer wins"
+    }
+
+    if (playerSelection == "paper" && computerSelection == "scissor") {
+        return "computer wins"
+    }
+
+    if (playerSelection == "scissor" && computerSelection == "rock") {
+        return "computer wins"
+    }
+
+    else {
+        return "user wins"
+    }
+
+
 
 
 }
