@@ -6,16 +6,16 @@ function getComputerChoice() {
     let number = parseInt(randomInRange)
 
     if (number == 1) {
-        console.log("rock")
+
         return "rock"
     }
 
     else if (number == 2) {
-        console.log("paper")
+
         return "paper"
     }
     else if (number == 3) {
-        console.log("scissor")
+
         return "scissor"
     }
 
@@ -29,15 +29,15 @@ function playRound(playerSelection, computerSelection) {
         return "nobody wins"
     }
 
-    if (playerSelection == "rock" && computerSelection == "paper") {
+    else if (playerSelection == "rock" && computerSelection == "paper") {
         return "computer wins"
     }
 
-    if (playerSelection == "paper" && computerSelection == "scissor") {
+    else if (playerSelection == "paper" && computerSelection == "scissor") {
         return "computer wins"
     }
 
-    if (playerSelection == "scissor" && computerSelection == "rock") {
+    else if (playerSelection == "scissor" && computerSelection == "rock") {
         return "computer wins"
     }
 
@@ -45,7 +45,37 @@ function playRound(playerSelection, computerSelection) {
         return "user wins"
     }
 
+}
+
+function game() {
+    let userScore = 0
+    let computerScore = 0
+
+    for (let i = 0; i < 5; i++) {
 
 
+        let userDecision = prompt("hey user, whats your move?")
 
+        let usersChoice = userDecision.toLowerCase()
+
+        let computerChoice = getComputerChoice()
+
+        let winner = playRound(usersChoice, computerChoice)
+
+        if (winner == "user wins") {
+            userScore = userScore + 1
+        }
+        else {
+            computerScore = computerScore + 1
+        }
+
+        console.log("results from round " + (i + 1) + " score from User: " + userScore + ", score from computer: " + computerScore)
+    }
+
+    if (userScore > computerScore) {
+        console.log("the winner of five rounds is user")
+    }
+    else {
+        console.log("the winner of 5 rounds is computer")
+    }
 }
